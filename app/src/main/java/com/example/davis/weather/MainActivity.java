@@ -1,7 +1,15 @@
 package com.example.davis.weather;
 
+import android.support.constraint.Placeholder;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.example.davis.weatherapp.R;
+
 //test
 public class MainActivity extends AppCompatActivity {
 
@@ -9,5 +17,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public static class TodayFragment extends Fragment {
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
+            return inflater.inflate(R.layout.today, container, false);
+        }
+
+    }
+
+    public static class ForecastFragment extends Fragment {
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
+            return inflater.inflate(R.layout.forecast, container, false);
+        }
+
     }
 }
