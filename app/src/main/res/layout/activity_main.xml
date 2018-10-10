@@ -7,14 +7,14 @@
     <!--Example-->
     <fragment
         android:id="@+id/today"
-        android:name="com.example.davis.weather.todayFragment"
-        android:layout_width="324dp"
+        android:name="com.example.davis.weatherapp.MainActivity$TodayFragment"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
     <fragment
         android:id="@+id/forecast"
-        android:name="com.example.davis.weather.forecastFragment"
+        android:name="com.example.davis.weatherapp.MainActivity$ForecastFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="2" />

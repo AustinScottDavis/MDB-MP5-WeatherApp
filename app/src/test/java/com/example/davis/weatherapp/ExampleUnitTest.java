@@ -1,4 +1,4 @@
-package com.example.davis.weather;
+package com.example.davis.weatherapp;
 
 import org.junit.Test;
 
