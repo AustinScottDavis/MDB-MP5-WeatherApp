@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fm;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +33,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
+
     public static class TodayFragment extends Fragment {
 
+        public TodayFragment() {
+
+        }
+        public static TodayFragment newInstance() {
+            return new TodayFragment();
+        }
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             return inflater.inflate(R.layout.today, container, false);
@@ -43,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
     public static class ForecastFragment extends Fragment {
 
+        public ForecastFragment() {
+
+        }
+        public static ForecastFragment newInstance() {
+            return new ForecastFragment();
+        }
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
