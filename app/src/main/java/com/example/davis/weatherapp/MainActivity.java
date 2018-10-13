@@ -74,9 +74,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
         setUp();
 
-        TodayFragment todayFrag = new TodayFragment();
-        fm.beginTransaction().add(R.id.fragment_container, todayFrag).commit();
-
         findViewById(R.id.toggle_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +116,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 //        TextView mLocationView = findViewById(R.id.locationView);
 //        mLocationView.setText(location.getLatitude()) + ", " + String.valueOf(location.getLongitude());
         Utils.location = String.valueOf(location.getLatitude()) + ", " + String.valueOf(location.getLongitude());
+        TodayFragment todayFrag = new TodayFragment();
+        fm.beginTransaction().add(R.id.fragment_container, todayFrag).commit();
 
         // You can now create a LatLng Object for use with maps
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
