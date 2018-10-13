@@ -1,9 +1,11 @@
 package com.example.davis.weatherapp;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Iterator;
+import java.util.List;
 
 public class Utils {
     public static String json = "";
@@ -17,10 +19,14 @@ public class Utils {
 
         try {
             JSONObject obj = new JSONObject(weatherData);
-            JSONObject todayObj = obj.getJSONObject("currently");
+            JSONObject currentObj = obj.getJSONObject("currently");
+            JSONArray lst = (JSONArray) obj.getJSONObject("daily").get("data");
+            JSONObject todayObj = (JSONObject) lst.get(0);
 
-            description = todayObj.getString("summary");
-
+            description = currentObj.getString("summary");
+            tempLow = todayObj.getString("temperatureLow");
+            tempHigh = todayObj.getString("temperatureHigh");
+            tempCurrent = currentObj.getString("temperature");
         } catch (JSONException e) {
             e.printStackTrace();
         }

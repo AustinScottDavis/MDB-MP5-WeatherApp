@@ -95,7 +95,14 @@ public class MainActivity extends AppCompatActivity {
             super.onActivityCreated(savedInstanceState);
 
             TextView desc = getView().findViewById(R.id.descView);
+            TextView low = getView().findViewById(R.id.loTempView);
+            TextView hi = getView().findViewById(R.id.hiTempView);
+            TextView temp = getView().findViewById(R.id.tempView);
+
             desc.setText(Utils.description);
+            low.setText(Utils.tempLow);
+            hi.setText(Utils.tempHigh);
+            temp.setText(Utils.tempCurrent);
         }
     }
 
