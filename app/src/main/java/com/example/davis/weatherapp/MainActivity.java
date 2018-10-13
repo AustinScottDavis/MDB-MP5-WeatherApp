@@ -50,7 +50,7 @@ import static com.google.android.gms.location.LocationServices.getFusedLocationP
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
     private FragmentManager fm;
     final private String tag = "fragTag";
-    private static final String sURL = "https://api.darksky.net/forecast/295a15b47e1a3e4649c5f43bfa41a17e/37.8267,-122.4233";
+    private static String sURL = "https://api.darksky.net/forecast/295a15b47e1a3e4649c5f43bfa41a17e/";
     public String json;
 
     // Location-related declarations
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         checkLocation();
         startLocationUpdates(); // sets Utils.location
 
-        setUp();
+
 
         findViewById(R.id.toggle_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +115,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
 //        TextView mLocationView = findViewById(R.id.locationView);
 //        mLocationView.setText(location.getLatitude()) + ", " + String.valueOf(location.getLongitude());
-        Utils.location = String.valueOf(location.getLatitude()) + ", " + String.valueOf(location.getLongitude());
+        Utils.location = String.valueOf(location.getLatitude()) + "," + String.valueOf(location.getLongitude());
+        sURL += Utils.location;
+
+        setUp();
         TodayFragment todayFrag = new TodayFragment();
         fm.beginTransaction().add(R.id.fragment_container, todayFrag).commit();
 
