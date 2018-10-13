@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -43,6 +45,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
+import java.util.Locale;
 
 import static com.google.android.gms.location.LocationServices.getFusedLocationProviderClient;
 
@@ -122,12 +126,27 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         Utils.location = String.valueOf(location.getLatitude()) + "," + String.valueOf(location.getLongitude());
         sURL += Utils.location;
 
+        Geocoder gcd = new Geocoder(this, Locale.getDefault());
+        List<Address> addresses = null;
+        try {
+            addresses = gcd.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (addresses != null && addresses.size() > 0) {
+            Utils.cityName = addresses.get(0).getLocality();
+        }
+
+
         setUp();
         TodayFragment todayFrag = new TodayFragment();
         fm.beginTransaction().add(R.id.fragment_container, todayFrag).commit();
 
         // You can now create a LatLng Object for use with maps
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+
+
+
     }
 
     // Location helpers
@@ -247,17 +266,26 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             TextView loc = getView().findViewById(R.id.locationView);
-            loc.setText(Utils.location);
-
             TextView desc = getView().findViewById(R.id.descView);
             TextView low = getView().findViewById(R.id.loTempView);
             TextView hi = getView().findViewById(R.id.hiTempView);
             TextView temp = getView().findViewById(R.id.tempView);
+            TextView city = getView().findViewById(R.id.cityView);
+            TextView ifRain = getView().findViewById(R.id.ifRainView);
+            TextView rainProb = getView().findViewById(R.id.rainProbView);
 
             desc.setText(Utils.description);
             low.setText(Utils.tempLow);
             hi.setText(Utils.tempHigh);
             temp.setText(Utils.tempCurrent);
+            loc.setText(Utils.location);
+            city.setText(Utils.cityName);
+            rainProb.setText(Utils.rainProb);
+            if (Utils.isRaining) {
+                ifRain.setText("Currently raining");
+            } else {
+                ifRain.setText("Not raining");
+            }
         }
     }
 
