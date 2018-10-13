@@ -10,32 +10,42 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="by Austin D. and Michelle M."
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintStart_toEndOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="129dp"
+        android:layout_height="109dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.903"
-        app:srcCompat="@drawable/mdb_icon"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.978"
+        app:srcCompat="@drawable/mdb_logo" />
+
+    <TextView
+        android:id="@+id/summaryView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -52,13 +62,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/summaryView">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="105dp"
-            app:cardBackgroundColor="?android:attr/colorButtonNormal">
+            app:cardBackgroundColor="?attr/colorPrimary">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -69,13 +78,12 @@
                     android:layout_width="96dp"
                     android:layout_height="97dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/weather_icon" />
+                    app:srcCompat="@drawable/unnamed" />
 
                 <TextView
                     android:id="@+id/dateView1"
@@ -83,11 +91,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="8dp"
                     android:text="date1"
+                    android:textColor="@android:color/background_light"
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -101,17 +108,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="LOW"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.74"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/highLabel"
-                    app:layout_constraintVertical_bias="0.208" />
+                    app:layout_constraintVertical_bias="0.457" />
 
                 <TextView
                     android:id="@+id/highLabel"
@@ -119,17 +125,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="HIGH"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.74"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.271" />
+                    app:layout_constraintVertical_bias="0.114" />
 
                 <TextView
                     android:id="@+id/lowView1"
@@ -137,10 +142,9 @@
                     android:layout_height="30dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -154,10 +158,9 @@
                     android:layout_height="30dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -172,7 +175,7 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="105dp"
-            app:cardBackgroundColor="?android:attr/colorButtonNormal">
+            app:cardBackgroundColor="@color/colorPrimary">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -183,13 +186,12 @@
                     android:layout_width="96dp"
                     android:layout_height="97dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/weather_icon" />
+                    app:srcCompat="@drawable/unnamed" />
 
                 <TextView
                     android:id="@+id/dateView2"
@@ -197,11 +199,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="8dp"
                     android:text="date2"
+                    android:textColor="@android:color/background_light"
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -213,19 +214,18 @@
                     android:id="@+id/lowLabel"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="LOW"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.74"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/highLabel"
-                    app:layout_constraintVertical_bias="0.208" />
+                    app:layout_constraintVertical_bias="0.75" />
 
                 <TextView
                     android:id="@+id/highLabel"
@@ -233,17 +233,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="HIGH"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.74"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.271" />
+                    app:layout_constraintVertical_bias="0.114" />
 
                 <TextView
                     android:id="@+id/lowView2"
@@ -251,10 +250,9 @@
                     android:layout_height="30dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -268,10 +266,9 @@
                     android:layout_height="30dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -286,7 +283,7 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="105dp"
-            app:cardBackgroundColor="?android:attr/colorButtonNormal">
+            app:cardBackgroundColor="@color/colorPrimary">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -297,13 +294,12 @@
                     android:layout_width="96dp"
                     android:layout_height="97dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/weather_icon" />
+                    app:srcCompat="@drawable/unnamed" />
 
                 <TextView
                     android:id="@+id/dateView3"
@@ -311,11 +307,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="8dp"
                     android:text="date3"
+                    android:textColor="@android:color/background_light"
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -327,19 +322,18 @@
                     android:id="@+id/lowLabel"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="21dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="LOW"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.74"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/highLabel"
-                    app:layout_constraintVertical_bias="0.208" />
+                    app:layout_constraintVertical_bias="0.889" />
 
                 <TextView
                     android:id="@+id/highLabel"
@@ -347,17 +341,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="HIGH"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.74"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.271" />
+                    app:layout_constraintVertical_bias="0.114" />
 
                 <TextView
                     android:id="@+id/lowView3"
@@ -365,10 +358,9 @@
                     android:layout_height="30dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -382,10 +374,9 @@
                     android:layout_height="30dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@android:color/background_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -398,7 +389,7 @@
         </android.support.v7.widget.CardView>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/darksky"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="powered by Dark Sky"

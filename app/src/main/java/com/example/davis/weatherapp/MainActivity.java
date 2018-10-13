@@ -9,6 +9,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
@@ -45,6 +46,14 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -78,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
 
 
+        findViewById(R.id.toggle_button2).setVisibility(View.INVISIBLE);
         findViewById(R.id.toggle_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -300,6 +310,54 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             return inflater.inflate(R.layout.forecast, container, false);
+        }
+
+        @Override
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+            TextView low1 = getView().findViewById(R.id.lowView1);
+            TextView low2 = getView().findViewById(R.id.lowView2);
+            TextView low3 = getView().findViewById(R.id.lowView3);
+            TextView high1 = getView().findViewById(R.id.highView1);
+            TextView high2 = getView().findViewById(R.id.highView2);
+            TextView high3 = getView().findViewById(R.id.highView3);
+            TextView summary = getView().findViewById(R.id.summaryView);
+            TextView date1 = getView().findViewById(R.id.dateView1);
+            TextView date2 = getView().findViewById(R.id.dateView2);
+            TextView date3 = getView().findViewById(R.id.dateView3);
+            TextView darksky = getView().findViewById(R.id.darksky);
+
+            low1.setText(Utils.low1);
+            low2.setText(Utils.low2);
+            low3.setText(Utils.low3);
+            high1.setText(Utils.high1);
+            high2.setText(Utils.high2);
+            high3.setText(Utils.high3);
+            summary.setText(Utils.weekSummary);
+
+            /*Date date = new Date();
+            Calendar c = Calendar.getInstance();
+            c.setTime(date);
+            int dayOfWeek1 = 1 + c.get(Calendar.DAY_OF_WEEK);
+            int dayOfWeek2 = 2 + c.get(Calendar.DAY_OF_WEEK);
+            int dayOfWeek3 = 3 + c.get(Calendar.DAY_OF_WEEK);
+            date1.setText(new SimpleDateFormat("EE").format(dayOfWeek1));
+            date2.setText(new SimpleDateFormat("EE").format(dayOfWeek2));
+            date3.setText(new SimpleDateFormat("EE").format(dayOfWeek3));*/
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
+            LocalDate date = LocalDate.parse("23/2/2010", formatter); // LocalDate = 2010-02-23
+            DayOfWeek dow = date.getDayOfWeek();  // Extracts a `DayOfWeek` enum object.
+            date1.setText(dow.getDisplayName(TextStyle.SHORT, Locale.US));
+
+            darksky.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Uri uri = Uri.parse("https://darksky.net/dev");
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            });
         }
 
     }
