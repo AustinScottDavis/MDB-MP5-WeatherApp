@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         findViewById(R.id.toggle_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.toggle_button2).setVisibility(View.VISIBLE);
+                findViewById(R.id.toggle_button).setVisibility(View.INVISIBLE);
                 FragmentTransaction transaction = fm.beginTransaction();
                 transaction.setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_right, R.animator.enter_from_right, R.animator.exit_to_left);
                 ForecastFragment forecastFrag = new ForecastFragment();
@@ -89,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         findViewById(R.id.toggle_button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.toggle_button2).setVisibility(View.INVISIBLE);
+                findViewById(R.id.toggle_button).setVisibility(View.VISIBLE);
                 fm.popBackStack();
             }
         });
